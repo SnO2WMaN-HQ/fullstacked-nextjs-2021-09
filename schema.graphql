@@ -1,0 +1,45 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type CreateTempAccountPayload {
+  token: String!
+  expiredAt: DateTime!
+}
+
+scalar DateTime
+
+type Mutation {
+  createTempUser(email: String!, alias: String!, password: String!, displayName: String): CreateTempAccountPayload!
+  registerUser(token: String!, code: String!): RegisterAccountPayload!
+  resendVerificationEmail(token: String!): ResendVerificationEmailPayload!
+  refreshToken(accessToken: String!, refreshToken: String!): RefreshTokenPayload!
+}
+
+type Query {
+  user(id: ID!): User!
+  findUser(alias: ID!): User
+  viewer: User!
+}
+
+type RefreshTokenPayload {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type RegisterAccountPayload {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type ResendVerificationEmailPayload {
+  expiredAt: DateTime!
+}
+
+type User {
+  id: ID!
+  alias: ID!
+  email: String!
+  displayName: String!
+}

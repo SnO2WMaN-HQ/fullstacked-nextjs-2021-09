@@ -1,0 +1,16 @@
+generates:
+  ./schema.graphql:
+    schema: ${GRAPHQL_API_SCHEMA:./schema.graphql}
+    plugins:
+      - schema-ast
+    config:
+      includeDirectives: true
+
+  ./src/graphql/codegen/api.ts:
+    schema: ${GRAPHQL_API_SCHEMA:./schema.graphql}
+    documents:
+      - ./src/graphql/api/*.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request

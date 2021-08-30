@@ -1,0 +1,6 @@
+mutation RegisterUser($token: String!, $code: String!) {
+  registerUser(token: $token, code: $code) {
+    accessToken
+    refreshToken
+  }
+}

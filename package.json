@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "run-p -sln dev:*",
+    "dev:next": "next dev",
+    "dev:gqlgen": "gql-gen --watch",
+    "gqlgen": "gql-gen"
+  },
+  "dependencies": {
+    "graphql": "^15.5.2",
+    "graphql-request": "^3.5.0",
+    "next": "^11.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-use": "^17.2.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@graphql-codegen/cli": "^2.1.1",
+    "@graphql-codegen/schema-ast": "^2.1.0",
+    "@graphql-codegen/typescript": "^2.1.2",
+    "@graphql-codegen/typescript-graphql-request": "^3.2.5",
+    "@graphql-codegen/typescript-operations": "^1.18.4",
+    "@graphql-codegen/typescript-react-apollo": "^2.3.1",
+    "@shopify/eslint-plugin": "^40.4.0",
+    "@shopify/prettier-config": "^1.1.2",
+    "@tsconfig/node16": "^1.0.2",
+    "@types/react": "^17.0.19",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-plugin-unused-imports": "^1.1.2",
+    "npm-run-all": "^4.1.5",
+    "type-fest": "^2.1.0",
+    "typescript": "^4.4.2"
+  }
+}

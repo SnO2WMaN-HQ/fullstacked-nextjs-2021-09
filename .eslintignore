@@ -1,0 +1,24 @@
+# dependencies
+package-lock.json
+
+# test
+coverage/
+
+# graphql-codegen
+schema.graphql
+src/graphql/codegen/
+
+# typesafe-i18n
+src/i18n/i18n-*
+
+# yarn
+.yarn/
+
+# Next.js
+.next/
+
+# Vercel
+.vercel/
+
+# Storybook
+storybook-static/
