@@ -1,5 +1,14 @@
-# graphql-codegen
+# output
+dist/
+.next/
+
+# auto generated files
+next-env.d.ts
+schema.graphql
+
+.msw/graphql-types.ts
+
+public/mockServiceWorker.js
+
 src/graphql/codegen/
 
-# GraphQL Schema
-schema.graphql

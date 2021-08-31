@@ -22,13 +22,6 @@
   },
   "overrides": [
     {
-      "files": ["next-env.d.ts"],
-      "rules": {
-        "spaced-comment": [0],
-        "@typescript-eslint/triple-slash-reference": [0]
-      }
-    },
-    {
       "files": ["*.config.js"],
       "extends": ["plugin:@shopify/node"]
     }

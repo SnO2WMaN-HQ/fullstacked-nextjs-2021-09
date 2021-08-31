@@ -1,24 +1,14 @@
-# dependencies
-package-lock.json
-
-# test
-coverage/
-
-# graphql-codegen
-schema.graphql
-src/graphql/codegen/
-
-# typesafe-i18n
-src/i18n/i18n-*
-
-# yarn
-.yarn/
-
-# Next.js
+# output
+dist/
 .next/
 
-# Vercel
-.vercel/
+# generated
+next-env.d.ts
+schema.graphql
 
-# Storybook
-storybook-static/
+.msw/graphql-types.ts
+
+public/mockServiceWorker.js
+
+src/graphql-types.ts
+src/templates/**/*.generated.ts
