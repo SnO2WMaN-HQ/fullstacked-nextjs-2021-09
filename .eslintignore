@@ -6,9 +6,7 @@ dist/
 next-env.d.ts
 schema.graphql
 
-.msw/graphql-types.ts
-
 public/mockServiceWorker.js
 
 src/graphql-types.ts
-src/templates/**/*.generated.ts
+src/**/*.generated.ts

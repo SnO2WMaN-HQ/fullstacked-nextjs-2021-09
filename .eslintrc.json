@@ -2,6 +2,7 @@
   "root": true,
   "extends": [
     "plugin:@shopify/typescript",
+    "plugin:@shopify/jest",
     "plugin:@shopify/react",
     "plugin:@next/next/recommended",
     "plugin:@shopify/prettier"

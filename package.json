@@ -1,10 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "run-p -sln dev:*",
-    "dev:next": "next dev",
-    "dev:gqlgen": "gql-gen --watch",
-    "gqlgen": "gql-gen"
+    "dev": "next dev",
+    "codegen": "gql-gen",
+    "test": "jest --config ./jest.config.ts"
   },
   "dependencies": {
     "graphql": "^15.5.2",
@@ -12,24 +11,39 @@
     "next": "^11.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-use": "^17.2.4"
+    "react-use": "^17.2.4",
+    "urql": "^2.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@graphql-codegen/cli": "^2.1.1",
+    "@graphql-codegen/gql-tag-operations-preset": "^1.1.2",
+    "@graphql-codegen/near-operation-file-preset": "^2.1.2",
     "@graphql-codegen/schema-ast": "^2.1.0",
+    "@graphql-codegen/typed-document-node": "^2.1.2",
     "@graphql-codegen/typescript": "^2.1.2",
     "@graphql-codegen/typescript-graphql-request": "^3.2.5",
-    "@graphql-codegen/typescript-operations": "^1.18.4",
-    "@graphql-codegen/typescript-react-apollo": "^2.3.1",
+    "@graphql-codegen/typescript-operations": "^2.1.2",
+    "@graphql-codegen/typescript-urql": "^3.1.2",
+    "@graphql-typed-document-node/core": "^3.1.0",
+    "@homebound/graphql-typescript-factories": "^2.41.0",
     "@shopify/eslint-plugin": "^40.4.0",
     "@shopify/prettier-config": "^1.1.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
     "@tsconfig/node16": "^1.0.2",
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "babel-jest": "^27.1.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.0.1",
     "eslint-plugin-unused-imports": "^1.1.2",
+    "jest": "^27.1.0",
+    "msw": "^0.35.0",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.5",
     "type-fest": "^2.1.0",
     "typescript": "^4.4.2"
   }

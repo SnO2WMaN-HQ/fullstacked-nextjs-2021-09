@@ -1,15 +1,22 @@
+
+schema: ${GRAPHQL_API_SCHEMA:./schema.graphql}
+
 generates:
   ./schema.graphql:
-    schema: ${GRAPHQL_API_SCHEMA:./schema.graphql}
     plugins:
       - schema-ast
     config:
       includeDirectives: true
 
-  ./src/graphql/codegen/api.ts:
-    schema: ${GRAPHQL_API_SCHEMA:./schema.graphql}
-    documents:
-      - ./src/graphql/api/*.graphql
+  ./src/graphql-types.ts:
+    plugins:
+      - typescript
+
+  ./src/pages/:
+    preset: near-operation-file
+    documents: ./src/pages/**/*.page.tsx
+    presetConfig:
+      baseTypesPath: ../graphql-types.ts
     plugins:
       - typescript
       - typescript-operations

@@ -12,6 +12,7 @@ package-lock.json
 # env
 .env
 .env.local
+
 .envrc
 
 # log
@@ -21,9 +22,9 @@ package-lock.json
 dist/
 .next/
 
-# graphql-codegen
-src/graphql/codegen/
+# generated
+src/graphql-types.ts
+src/**/*.generated.ts
 
-# ESLint
 .eslintcache
 

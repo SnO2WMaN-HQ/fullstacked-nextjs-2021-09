@@ -10,17 +10,22 @@ type CreateTempAccountPayload {
 
 scalar DateTime
 
+type FindUserPayload {
+  user: User
+}
+
 type Mutation {
-  createTempUser(email: String!, alias: String!, password: String!, displayName: String): CreateTempAccountPayload!
-  registerUser(token: String!, code: String!): RegisterAccountPayload!
-  resendVerificationEmail(token: String!): ResendVerificationEmailPayload!
-  refreshToken(accessToken: String!, refreshToken: String!): RefreshTokenPayload!
+  CreateTempUser(email: String!, alias: String!, password: String!, displayName: String): CreateTempAccountPayload!
+  RegisterUser(token: String!, code: String!): RegisterAccountPayload!
+  ResendVerificationEmail(token: String!): ResendVerificationEmailPayload!
+  RefreshToken(accessToken: String!, refreshToken: String!): RefreshTokenPayload!
 }
 
 type Query {
-  user(id: ID!): User!
-  findUser(alias: ID!): User
-  viewer: User!
+  User(id: ID!): User!
+  FindUser(alias: ID!): FindUserPayload!
+  AllUsers: [User!]!
+  Viewer: User!
 }
 
 type RefreshTokenPayload {
