@@ -11,6 +11,9 @@ generates:
   ./src/graphql-types.ts:
     plugins:
       - typescript
+    config:
+      scalars:
+        DateTime: Date
 
   ./src/pages/:
     preset: near-operation-file

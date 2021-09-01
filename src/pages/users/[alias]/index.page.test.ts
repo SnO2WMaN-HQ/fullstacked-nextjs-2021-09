@@ -1,10 +1,13 @@
 import {graphql} from 'msw';
 
-import {getStaticPaths} from './index.page';
+import {getStaticPaths, getStaticProps, UrlQuery} from './index.page';
 import {
   AllUserPagesDocument,
   AllUserPagesQuery,
   AllUserPagesQueryVariables,
+  UserPageDocument,
+  UserPageQuery,
+  UserPageQueryVariables,
 } from './index.page.generated';
 
 import {mockServer} from '~/mocks/server';
@@ -31,6 +34,38 @@ describe('/users/[alias]', () => {
       });
 
       expect(queryInterceptor).toHaveBeenCalledWith({});
+    });
+  });
+
+  describe('getStaticProps()', () => {
+    it('return notFound if param is undefined', async () => {
+      const staticProps = await getStaticProps({});
+
+      expect(staticProps).toStrictEqual({notFound: true});
+    });
+
+    it('return notFound if param.alias is undefined', async () => {
+      const staticProps = await getStaticProps({params: {} as UrlQuery});
+
+      expect(staticProps).toStrictEqual({notFound: true});
+    });
+
+    it('return notFound if user not found', async () => {
+      const queryInterceptor = jest.fn();
+
+      mockServer.use(
+        graphql.query<UserPageQuery, UserPageQueryVariables>(
+          UserPageDocument,
+          (req, res, ctx) => {
+            queryInterceptor(req.variables);
+            return res.once(ctx.data({FindUser: {user: null}}));
+          },
+        ),
+      );
+      const staticProps = await getStaticProps({params: {alias: 'alias'}});
+
+      expect(staticProps).toStrictEqual({notFound: true});
+      expect(queryInterceptor).toHaveBeenCalledWith({alias: 'alias'});
     });
   });
 });
