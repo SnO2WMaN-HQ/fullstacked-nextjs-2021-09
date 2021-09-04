@@ -67,5 +67,31 @@ describe('/users/[alias]', () => {
       expect(staticProps).toStrictEqual({notFound: true});
       expect(queryInterceptor).toHaveBeenCalledWith({alias: 'alias'});
     });
+
+    it('return props if user exists', async () => {
+      const queryInterceptor = jest.fn();
+
+      mockServer.use(
+        graphql.query<UserPageQuery, UserPageQueryVariables>(
+          UserPageDocument,
+          (req, res, ctx) => {
+            queryInterceptor(req.variables);
+            return res.once(
+              ctx.data({
+                FindUser: {
+                  user: {id: '1', alias: 'alias', displayName: 'displayName'},
+                },
+              }),
+            );
+          },
+        ),
+      );
+      const staticProps = await getStaticProps({params: {alias: 'alias'}});
+
+      expect(staticProps).toStrictEqual({
+        props: {user: {id: '1', alias: 'alias', displayName: 'displayName'}},
+      });
+      expect(queryInterceptor).toHaveBeenCalledWith({alias: 'alias'});
+    });
   });
 });
